@@ -31,7 +31,6 @@
 
 
 
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -42,9 +41,9 @@
 
       </div>
       <div class="modal-body">
+        <%= form_for :post, url: posts_path do |f| %>
         <div class="container">
           <p>What have you been working on?</p>
-          <%= form_for :post, url: posts_path do |f| %>
             <p>
               <%=f.label :title %> <br>
               <%=f.text_field :title %>
@@ -54,19 +53,18 @@
               <%=f.label :body %> <br>
               <%=f.text_field :body %>
             </p>
-
-
-
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal">Close</button>
           <%= f.submit %>
         <%end%>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <%= yield %>
 

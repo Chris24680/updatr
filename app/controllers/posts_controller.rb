@@ -1,16 +1,20 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.all.order('created_at DESC').group_by{ |item| item.created_at.to_date }
+    @post = Post.new
   end
 
   def new
+    @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    @post.save
-
-    redirect_to @post
+    if @post.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -21,5 +25,8 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
+  def grouped_created_at
+    @groupedPosts = @posts.group_by { |c| c.created_at.to_date }
+  end
 
 end
