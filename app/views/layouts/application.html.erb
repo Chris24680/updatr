@@ -15,12 +15,58 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'New Post', new_post_path%></li>
+        <li>
+          <!-- <p class="navbar-btn">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+              Launch demo modal
+            </button>
+          </p> -->
+          <%= link_to 'New Update', '#myModal', 'data-toggle' => 'modal' %>
+        </li>
         <li><%= link_to 'Sign In', root_path%></li>
         <li><%= link_to 'Log Out', root_path%></li>
       </ul>
   </div>
 </nav>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1>New Update</h1>
+
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <p>What have you been working on?</p>
+          <%= form_for :post, url: posts_path do |f| %>
+            <p>
+              <%=f.label :title %> <br>
+              <%=f.text_field :title %>
+            </p>
+
+            <p>
+              <%=f.label :body %> <br>
+              <%=f.text_field :body %>
+            </p>
+
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= yield %>
 
