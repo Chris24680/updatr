@@ -1,12 +1,12 @@
 <div class="container">
 <ul class="list-group">
   <% @posts.each do |date, posts| %>
-
+      <h4 class="text-center"><%= date.to_date.to_s %></h4>
       <ul>
-        <h4><%= date.to_date.to_s %></h4>
+
         <% posts.each do |post| %>
           <li class="list-group-item">
-           User has... <%= post.title%> </h2 class="pull-r">
+           <%= post.user.email %> has... <%= post.title%> </h2 class="pull-r">
            <span class="pull-right"><%=link_to 'View', post%></span>
           </li>
         <%end%>
