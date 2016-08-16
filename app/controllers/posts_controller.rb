@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.date = Date.today
     if @post.save
       redirect_to root_path
     else
