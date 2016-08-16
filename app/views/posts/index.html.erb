@@ -1,7 +1,9 @@
-<h1>Updatr</h1>
 
-<% @posts.each do |post| %>
-  <div class="post_wrapper">
-    <h2 class="title">User has... <%= post.title%> </h2> <%=link_to 'View', post%>
-  </div>
-<%end%>
+<div class="container">
+<ul class="list-group">
+  <% @posts.each do |post| %>
+
+    <li class="list-group-item">User has... <%= post.title%> </h2 class="pull-r"> <span class="pull-right"><%=link_to 'View', post%></span></li>
+  <%end%>
+</ul>
+</div>

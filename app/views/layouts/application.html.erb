@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand"><%= link_to "Updatr", root_path%></div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'New Post', new_post_path%></li>
+        <li><%= link_to 'Sign In', root_path%></li>
+        <li><%= link_to 'Log Out', root_path%></li>
+      </ul>
+  </div>
+</nav>
+
 <%= yield %>
 
 </body>
