@@ -6,7 +6,7 @@
 
         <% posts.each do |post| %>
           <li class="list-group-item">
-           <%=link_to post.user.email, post.user%> has... <%= post.title%> </h2 class="pull-r">
+           <%= post.user.email %> has... <%= post.title%> </h2 class="pull-r">
            <span class="pull-right"><%=link_to 'View', post%></span>
           </li>
         <%end%>

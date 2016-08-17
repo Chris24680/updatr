@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= form_for :post, url: posts_path do |f| %>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -16,9 +17,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li>
-            <%= link_to 'New Update', '#myModal', 'data-toggle' => 'modal' %>
-          </li>
+          <li><%= link_to 'New Update', '#myModal', 'data-toggle' => 'modal' %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete%></li>
         <%else%>
           <li><%= link_to 'Sign Up', new_user_registration_path%></li>
@@ -37,19 +36,18 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h1>New Update</h1>
-
       </div>
       <div class="modal-body">
-        <%= form_for :post, url: posts_path do |f| %>
+
         <div class="container">
           <p>What have you been working on?</p>
             <p>
-              <%=f.label :title %> <br>
+              <%=f.label :title %> <br />
               <%=f.text_field :title %>
             </p>
 
             <p>
-              <%=f.label :body %> <br>
+              <%=f.label :body %> <br />
               <%=f.text_field :body %>
             </p>
         </div>
@@ -57,11 +55,11 @@
       <div class="modal-footer">
         <button type="button" data-dismiss="modal">Close</button>
           <%= f.submit %>
-        <%end%>
+
       </div>
     </div>
   </div>
-</div
+</div>
 
 <div class="container">
   <% flash.each do |name, msg| %>
@@ -69,7 +67,7 @@
 		<% end %>
 </div>
 
-
+<%end%>
 
 <%= yield %>
 
