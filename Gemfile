@@ -48,4 +48,8 @@ group :development do
 
   gem 'devise', '~> 4.2'
 
+  gem 'acts-as-taggable-on', '~> 4.0'
+
+  gem 'bootstrap-tagsinput-rails'
+
 end

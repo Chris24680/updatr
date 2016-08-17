@@ -23,6 +23,7 @@
           <li><%= link_to 'Sign Up', new_user_registration_path%></li>
           <li><%= link_to 'Sign In', new_user_session_path%></li>
         <%end%>
+        <li><%= link_to 'Tags', tags_path%></li>
       </ul>
   </div>
 </nav>
@@ -50,6 +51,12 @@
               <%=f.label :body %> <br />
               <%=f.text_field :body %>
             </p>
+
+            <div class="field">
+              <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+              <%= f.text_field :tag_list, 'data-role'=>'tagsinput' %>
+            </div>
+
         </div>
       </div>
       <div class="modal-footer">
